@@ -33,12 +33,12 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(top: 15.0),
         child: TextField(
+          obscureText: (true),
+          // maxLines: 5,
           keyboardType: TextInputType.number,
           showCursor: true,
           decoration: InputDecoration(
             prefixIcon: Icon(Icons.search),
-            prefix: TextButton.icon(onPressed: (){}, icon: Icon(Icons.search), label: Text("fe")),
-            suffix: Icon(Icons.mode_fan_off),
             hintText: 'Enter your number',
             icon: Icon(Icons.phone_android),
             iconColor: Colors.red,
