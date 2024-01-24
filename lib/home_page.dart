@@ -53,36 +53,24 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            // ListView(
-            //   children: [
-            //     ListTile(
-            //       leading: Text("This is the leading"),
-            //       title: Text('List'),
-            //       subtitle: Text('List'),
-            //     ),
-            //     ListTile(
-            //       title: Text('List'),
-            //       subtitle: Text('List'),
-            //     ),
-            //     ListTile(
-            //       title: Text('List'),
-            //       subtitle: Text('List'),
-            //     ),
-            //   ],
-            // ),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text('List'),
-              subtitle: Text('List'),
-              onLongPress: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('Long press me!'),
-                  ),
-                );
-              },
+            ListView(
+              shrinkWrap: true,
+              children: [
+                ListTile(
+                  leading: Text("This is the leading"),
+                  title: Text('List'),
+                  subtitle: Text('List'),
+                ),
+                ListTile(
+                  title: Text('List'),
+                  subtitle: Text('List'),
+                ),
+                ListTile(
+                  title: Text('List'),
+                  subtitle: Text('List'),
+                ),
+              ],
             ),
-
           ],
         ),
       ),
