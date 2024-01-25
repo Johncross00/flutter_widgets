@@ -36,45 +36,66 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-              // obscureText: (true),
-              // maxLines: 5,
               keyboardType: TextInputType.number,
               showCursor: true,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.search),
                 hintText: 'Enter your number',
                 icon: Icon(Icons.phone_android),
-                iconColor: Colors.red,
+                iconColor: Colors.blueGrey,
                 suffixIcon: Icon(Icons.numbers),
                 hintStyle: TextStyle(color: Colors.black),
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),
-            ListView(
-              shrinkWrap: true,
-              children: [
-                ListTile(
-                  leading: Text("This is the leading"),
-                  title: Text('List'),
-                  subtitle: Text('List'),
-                ),
-                ListTile(
-                  title: Text('List'),
-                  subtitle: Text('List'),
-                ),
-                ListTile(
-                  title: Text('List'),
-                  subtitle: Text('List'),
-                ),
-              ],
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  buildListTile(context, 'This is the title', 'This is the subtitle'),
+                  buildListTile(context, 'This is the title', 'This is the subtitle'),
+                  buildListTile(context, 'This is the title', 'This is the subtitle'),
+                  buildListTile(context, 'This is the title', 'This is the subtitle'),
+                ],
+              ),
             ),
           ],
         ),
       ),
     );
   }
-}
 
+  Widget buildListTile(BuildContext context, String title, String subtitle) {
+    return Card(
+      elevation: 15,
+      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      child: ListTile(
+        leading: CircleAvatar(child: Icon(Icons.person)),
+        title: Text(title),
+        subtitle: Text(subtitle),
+        trailing: PopupMenuButton<String>(
+          onSelected: (String result){
+            if(result == 'Edit'){
+              print ('Edit');
+            }
+            else if(result == 'Delete'){
+              print ('Delete');
+            }
+          }, itemBuilder: (BuildContext context) =>
+            <PopupMenuEntry<String>>[
+              PopupMenuItem<String>(
+                value: 'Edit',
+                child: Text('Edit'),
+              ),PopupMenuItem<String>(
+                value: 'Delete',
+                child: Text('Delete'),
+              ),
+            ]
+
+        )
+      ),
+    );
+  }
+}
