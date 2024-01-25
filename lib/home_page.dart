@@ -38,7 +38,14 @@ class HomePage extends StatelessWidget {
             TextField(
               keyboardType: TextInputType.number,
               showCursor: true,
+              textAlign: TextAlign.start,
+              enableSuggestions: true,
+              cursorColor: Colors.black,
+              readOnly: false,
+              enabled: true,
+              autofocus: true,
               decoration: InputDecoration(
+                labelText: 'Number',
                 prefixIcon: const Icon(Icons.search),
                 hintText: 'Enter your number',
                 icon: const Icon(Icons.phone_android),
