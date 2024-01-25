@@ -20,11 +20,11 @@ class HomePage extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.menu, color: Colors.white, size: 30,),
+                icon: const Icon(Icons.menu, color: Colors.white, size: 30,),
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.search, color: Colors.white, size: 30,),
+                icon: const Icon(Icons.search, color: Colors.white, size: 30,),
               ),
             ],
           ),
@@ -39,12 +39,12 @@ class HomePage extends StatelessWidget {
               keyboardType: TextInputType.number,
               showCursor: true,
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
                 hintText: 'Enter your number',
-                icon: Icon(Icons.phone_android),
+                icon: const Icon(Icons.phone_android),
                 iconColor: Colors.blueGrey,
-                suffixIcon: Icon(Icons.numbers),
-                hintStyle: TextStyle(color: Colors.black),
+                suffixIcon: const Icon(Icons.numbers),
+                hintStyle: const TextStyle(color: Colors.black),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -70,25 +70,25 @@ class HomePage extends StatelessWidget {
   Widget buildListTile(BuildContext context, String title, String subtitle) {
     return Card(
       elevation: 15,
-      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: ListTile(
-        leading: CircleAvatar(child: Icon(Icons.person)),
+        leading: const CircleAvatar(child: Icon(Icons.person)),
         title: Text(title),
         subtitle: Text(subtitle),
         trailing: PopupMenuButton<String>(
           onSelected: (String result){
             if(result == 'Edit'){
-              print ('Edit');
+              // print ('Edit');
             }
             else if(result == 'Delete'){
-              print ('Delete');
+              // print ('Delete');
             }
           }, itemBuilder: (BuildContext context) =>
             <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'Edit',
                 child: Text('Edit'),
-              ),PopupMenuItem<String>(
+              ),const PopupMenuItem<String>(
                 value: 'Delete',
                 child: Text('Delete'),
               ),
