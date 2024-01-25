@@ -45,7 +45,11 @@ class HomePage extends StatelessWidget {
               enabled: true,
               autofocus: true,
               decoration: InputDecoration(
+                alignLabelWithHint: false,
+                // errorText: 'Error',
+                helperText: 'Just write',
                 labelText: 'Number',
+                isDense: false,
                 prefixIcon: const Icon(Icons.search),
                 hintText: 'Enter your number',
                 icon: const Icon(Icons.phone_android),
@@ -64,7 +68,6 @@ class HomePage extends StatelessWidget {
                   buildListTile(context, 'This is the title', 'This is the subtitle'),
                   buildListTile(context, 'This is the title', 'This is the subtitle'),
                   buildListTile(context, 'This is the title', 'This is the subtitle'),
-                  buildListTile(context, 'This is the title', 'This is the subtitle'),
                 ],
               ),
             ),
@@ -76,7 +79,7 @@ class HomePage extends StatelessWidget {
 
   Widget buildListTile(BuildContext context, String title, String subtitle) {
     return Card(
-      elevation: 15,
+      elevation: 10,
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: ListTile(
         leading: const CircleAvatar(child: Icon(Icons.person)),
