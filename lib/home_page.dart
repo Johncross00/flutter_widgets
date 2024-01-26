@@ -79,32 +79,44 @@ class HomePage extends StatelessWidget {
 
   Widget buildListTile(BuildContext context, String title, String subtitle) {
     return Card(
+      color: Colors.deepPurpleAccent[800],
       elevation: 10,
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      // margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: ListTile(
         leading: const CircleAvatar(child: Icon(Icons.person)),
         title: Text(title),
         subtitle: Text(subtitle),
-        trailing: PopupMenuButton<String>(
-          onSelected: (String result){
-            if(result == 'Edit'){
-              // print ('Edit');
-            }
-            else if(result == 'Delete'){
-              // print ('Delete');
-            }
-          }, itemBuilder: (BuildContext context) =>
-            <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
-                value: 'Edit',
-                child: Text('Edit'),
-              ),const PopupMenuItem<String>(
-                value: 'Delete',
-                child: Text('Delete'),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            PopupMenuButton<String>(
+              color: Colors.orange.withOpacity(0.5),
+              shape: RoundedRectangleBorder(
+                side: BorderSide(
+                  width: 1
+                ),
+                borderRadius: BorderRadius.circular(15)
               ),
-            ]
-
-        )
+              onSelected: (String result){
+                if(result == 'Edit'){
+                  // print ('Edit');
+                }
+                else if(result == 'Delete'){
+                  // print ('Delete');
+                }
+              }, itemBuilder: (BuildContext context) =>
+                <PopupMenuEntry<String>>[
+                  const PopupMenuItem<String>(
+                    value: 'Edit',
+                    child: Text('Edit'),
+                  ),const PopupMenuItem<String>(
+                    value: 'Delete',
+                    child: Text('Delete'),
+                  ),
+                ]
+            ),
+          ],
+        ),
       ),
     );
   }
